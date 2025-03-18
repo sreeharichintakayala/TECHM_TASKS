@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Thumbnail Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .video-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .video-thumbnail:hover img {
+            opacity: 1;
+        }
+        .video-thumbnail iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .video-thumbnail.active iframe {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Video Thumbnail Gallery</h1>
+
+<div class="video-gallery">
+    <!-- Video 1 -->
+    <div class="video-thumbnail" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Video 1 Thumbnail">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video-thumbnail" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg" alt="Video 2 Thumbnail">
+        <iframe src="https://www.youtube.com/embed/9bZkp7q19f0?autoplay=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="video-thumbnail" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/J---aiyznGQ/maxresdefault.jpg" alt="Video 3 Thumbnail">
+        <iframe src="https://www.youtube.com/embed/J---aiyznGQ?autoplay=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+    function playVideo(thumbnail) {
+        // Remove active class from all thumbnails
+        document.querySelectorAll('.video-thumbnail').forEach(function (el) {
+            el.classList.remove('active');
+        });
+
+        // Add active class to the clicked thumbnail
+        thumbnail.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
