@@ -1,0 +1,11 @@
+body{
+    background-color: burlywood;
+    font-style: italic;
+}
+marquee{
+    background-color: cadetblue;
+}
+h2{
+    align-content: center;
+    font-style: italic;
+}
